@@ -1,22 +1,14 @@
 import React, { useState } from "react";
 
-const Input = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [Value, setValue] = useState("");
-
-  const handleChange = (e) => {
+const Input = ({ handleChange }) => {
+  const changeValue = (e) => {
     console.log("e.target.value", e.target.value);
-    setSearchValue(e.target.value);
+    handleChange(e.target.value);
   };
-  const handleClick = (e) => {
-    console.log("click");
-    setSearchValue(Value);
-  };
+
   return (
-    <div>
-      <input className="border-gray-400" type="text" onChange={handleChange} />
-      <p>search value: {searchValue}</p>
-      <button onClick={handleClick}>clear</button>
+    <div className="flex flex-col gap-4 mt-4">
+      <input className="border-gray-400" type="text" onChange={changeValue} />
     </div>
   );
 };
